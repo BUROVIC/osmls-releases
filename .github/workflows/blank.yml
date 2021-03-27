@@ -28,9 +28,14 @@ jobs:
       - name: Install Protoc
         uses: arduino/setup-protoc@v1
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Clone backend
+        run: git clone https://BUROVIC@bitbucket.org/BUROVIC/osmlifesimulation.git backend
+        
+      - name: Clone frontend
+        run: git clone https://github.com/Distera/OSMLS-Frontend frontend
+        
+      - name: Run ls
+        run: ls
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
