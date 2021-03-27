@@ -25,12 +25,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: Install Protoc
-        uses: arduino/setup-protoc@v1
-
       - name: Clone backend
         run: git clone https://BUROVIC@bitbucket.org/BUROVIC/osmlifesimulation.git backend
+
+      - name: Install dotnet
+      - uses: actions/checkout@main
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.x.x'
         
+      - name: Publich backend
+      - run: dotnet publish backend/OSMLS/OSMLS.csproj -o osmls
+
       - name: Clone frontend
         run: git clone https://github.com/Distera/OSMLS-Frontend frontend
         
